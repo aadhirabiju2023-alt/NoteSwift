@@ -59,7 +59,7 @@ let generated = "";
 async function generateNotes() {
     const content = document.getElementById("input").value;
 
-    const res = await fetch("http://localhost:5000/generate", {
+    const res = await fetch("fetch("https://your-backend-url.onrender.com/generate")", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -75,7 +75,8 @@ async function generateNotes() {
 
 // Save Notes
 async function saveNotes() {
-    await fetch("http://localhost:5000/save", {
+    await fetch("fetch("https://your-backend-url.onrender.com/save")
+fetch("https://your-backend-url.onrender.com/notes")", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -89,7 +90,7 @@ async function saveNotes() {
 
 // Load Saved Notes
 async function loadNotes() {
-    const res = await fetch("http://localhost:5000/notes");
+    const res = await fetch("https://noteswift-ujx7.onrender.com");
     const data = await res.json();
 
     const list = document.getElementById("savedList");
