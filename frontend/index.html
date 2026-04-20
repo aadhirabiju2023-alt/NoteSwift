@@ -59,7 +59,7 @@ let generated = "";
 async function generateNotes() {
     const content = document.getElementById("input").value;
 
-    const res = await fetch("https://noteswift-backend.onrender.com/generate", {
+    const res = await fetch("https://noteswift-ujx7.onrender.com/generate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -71,22 +71,21 @@ async function generateNotes() {
 
     document.getElementById("output").innerText = data.notes;
 }
-
     
 
 // Save Notes
 async function saveNotes() {
-    await fetch("fetch("fetch("https://noteswift-backend.onrender.com/save")/save")
-fetch("https://noteswift-backend.onrender.com/notes")", {
+    const notes = document.getElementById("output").innerText;
+
+    await fetch("https://noteswift-ujx7.onrender.com/save", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ notes: generated })
+        body: JSON.stringify({ notes })
     });
 
-    alert("Saved Successfully!");
-    loadNotes();
+    alert("Notes saved!");
 }
 
 // Load Saved Notes
