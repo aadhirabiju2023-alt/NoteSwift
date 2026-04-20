@@ -59,7 +59,7 @@ let generated = "";
 async function generateNotes() {
     const content = document.getElementById("input").value;
 
-    const res = await fetch("fetch("https://your-backend-url.onrender.com/generate")", {
+    const res = await fetch("https://noteswift-backend.onrender.com/generate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -69,14 +69,15 @@ async function generateNotes() {
 
     const data = await res.json();
 
-    generated = data.notes;
-    document.getElementById("output").innerText = generated;
+    document.getElementById("output").innerText = data.notes;
 }
+
+    
 
 // Save Notes
 async function saveNotes() {
-    await fetch("fetch("https://your-backend-url.onrender.com/save")
-fetch("https://your-backend-url.onrender.com/notes")", {
+    await fetch("fetch("fetch("https://noteswift-backend.onrender.com/save")/save")
+fetch("https://noteswift-backend.onrender.com/notes")", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -89,18 +90,18 @@ fetch("https://your-backend-url.onrender.com/notes")", {
 }
 
 // Load Saved Notes
-async function loadNotes() {
-    const res = await fetch("https://noteswift-ujx7.onrender.com");
-    const data = await res.json();
+async function saveNotes() {
+    const notes = document.getElementById("output").innerText;
 
-    const list = document.getElementById("savedList");
-    list.innerHTML = "";
-
-    data.forEach(note => {
-        const li = document.createElement("li");
-        li.innerText = note;
-        list.appendChild(li);
+    await fetch("https://noteswift-backend.onrender.com/save", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ notes })
     });
+
+    alert("Notes saved!");
 }
 
 // Download Notes
